@@ -49,4 +49,13 @@ public class Employee
     {
         return "Empolyee Details\n Id:"+id+"\nName: "+name+"\nAge: "+age+"\nDepartment:"+department+"\nSalary:"+salary+"\n";
     }
+    public Employee(int id, String name,int age, String department,double salary)
+    {
+        super();
+        this.id=id;
+        this.name=name;
+        this.age=age;
+        this.department=department;
+        this.salary=salary;
+    }
 }
