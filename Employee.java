@@ -47,7 +47,7 @@ public class Employee
     }
     public String toString()
     {
-        return "Empolyee Details\n Id:"+id+"\nName: "+name+"\nAge: "+age+"\nDepartment:"+department+"\nSalary:"+salary+"\n";
+        return "Empolyee Details\nId:"+id+"\nName: "+name+"\nAge: "+age+"\nDepartment:"+department+"\nSalary:"+salary+"\n";
     }
     public Employee(int id, String name,int age, String department,double salary)
     {

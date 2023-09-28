@@ -8,27 +8,30 @@ public class Main {
     }
     public static void main (String[] args)
     {
+        EmployeeService service=new EmployeeService();
         Scanner sc=new Scanner(System.in);
         do
         {
+            menu();
             System.out.println("Enter your choice:");
             int choice=sc.nextInt();
             switch(choice)
             {
                 case 1:
-                    System.out.println("Add Employee\n");
+                    service.addEmployee();
                     break;
                 case 2:
-                    System.out.println("View Emoloyee\n");
+                    service.viewEmployeeById();
                     break;
                 case 3:
-                    System.out.println("Update Employee\n");
+                    service.updateEmployeeDetails();
                     break;
                 case 4:
-                    System.out.println("Delete Employee\n");
+                    service.deleteEmployee();
                     break;
                 case 5:
-                    System.out.println("View all Employee\n");
+                    System.out.println("\nAll Employee List\n");
+                    service.viewEmployee();
                     break;
                 case 6:
                     System.out.println("Thank you for using the application.\n");
@@ -37,8 +40,6 @@ public class Main {
                 default:
                     System.out.println("Please enter valid choice.\n");
                     break;
-
-
             }
         }while(ordering);
     }
