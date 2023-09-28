@@ -80,10 +80,32 @@ public class EmployeeService {
                 switch(next)
                 {
                     case 1:
-                        System.out.println("Please enter the Id that you want it to get updated to.");
-                        id=s.nextInt();
-                        emp.setId(id);
-                        System.out.println("Record updated.\n");
+                        boolean idExists = false;
+                        do 
+                        {
+                            System.out.println("Please enter the new unique employee ID:");
+                            id = s.nextInt();
+                            // Check if the new ID already exists
+                            for (Employee emptemp : empset) 
+                            {
+                                if (emptemp.getId() == id) 
+                                {
+                                    idExists = true;
+                                    System.out.println("Please enter a unique employee ID; this ID already exists.");
+                                    break;
+                                }
+                                else
+                                {
+                                    idExists=false;
+                                }
+                            }
+                            if (!idExists) 
+                            {
+                                emp.setId(id);
+                                System.out.println("Employee ID updated successfully.");
+                                temp=false;
+                            }
+                        } while (temp); // Keep prompting until a unique ID is provided
                         break;
                     case 2:
                         System.out.println("Please enter the Name that you want it to get updated to.");
@@ -170,9 +192,25 @@ public class EmployeeService {
         do {
             switch (next) {
                 case 1:
+                    temp=true;
                     System.out.println("Let's add another Employee.");
                     System.out.println("Please enter the id of the new Employee:");
                     id = s.nextInt();
+                    while (temp==true) 
+                    {
+                        for (Employee emp : empset)
+                        {
+                            if (emp.getId() == id) 
+                            {
+                                System.out.println("Please enter unique employee id this employee id already exits.");
+                                id=s.nextInt();
+                            }
+                            else
+                            {
+                                temp=false;
+                            }
+                        }
+                    }
                     s.nextLine(); // Consume the newline character
                     System.out.println("Please enter the name of the new Employee:");
                     name = s.nextLine(); // Read the entire line
